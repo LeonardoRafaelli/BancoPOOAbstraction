@@ -70,9 +70,11 @@ public class Main {
                 System.out.print("Deposit amount U$: ");
                 logAccount.depositar(sc.nextDouble());
             }
+            break;
             case 2: {
                withdraw(logAccount);
             }
+            break;
             case 3: {
                 System.out.print("Benefited account number");
                 ContaBancaria benefitedAcc = getAccount();
@@ -83,9 +85,11 @@ public class Main {
                 benefitedAcc.setSaldo(benefitedAcc.getSaldo() + amount);
                 System.out.print("Transference has been made!");
             }
+            break;
             case 4: {
                 logAccount.toString();
             }
+            break;
         }
     }
 
@@ -103,10 +107,10 @@ public class Main {
                 System.out.println("You cannot withdraw more than U$" + (logAccount.getSaldo() + (((ContaCorrente) logAccount).getLimite())));
             }
         } else {
-            if(withdraw > logAccount.getSaldo()){
+            if(withdraw > logAccount.getSaldo() && withdraw > 0){
                 logAccount.sacar(withdraw);
             } else {
-                System.out.println("You cannot withdraw more than U$" + (logAccount.getSaldo()));
+                System.out.println("You cannot withdraw more than U$" + (logAccount.getSaldo()) + "\n" + "And the withdraw has to be more than 0");
             }
         }
     }
